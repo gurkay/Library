@@ -5,8 +5,13 @@
 //*****************************************************************************
 abstract class Library implements InterfaceLibrary{
 	
-	private static int totalNumberOfBooks = 0;
+	private static int totalNumberOfBooks;
 	Book[] books = new Book[] {};
+	
+	Book(){
+		this.totalNumberOfBooks = 0;
+	}
+	
 	//Add new books
 	public void addBook(String bookName, String authorName, String ISBN, int numPages, int pubYear, String[] keyWords){
 		//if total number of books than more 10 don't add books
