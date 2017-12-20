@@ -35,7 +35,7 @@ abstract class Library implements InterfaceLibrary{
 				s += ", " + books[returnCurrentNumberOfBooks()].getKeyWords()[i];
 			}
 			System.out.println(returnCurrentNumberOfBooks());
-			arrayBooksDataBase[returnCurrentNumberOfBooks()] = (books[returnCurrentNumberOfBooks()].getBookName() + ", " + 
+			arrayBooksDataBase[returnCurrentNumberOfBooks()][0] = (books[returnCurrentNumberOfBooks()].getBookName() + ", " + 
 					books[returnCurrentNumberOfBooks()].getAuthorName() + ", " + books[returnCurrentNumberOfBooks()].getISBN() + ", " + 
 					books[returnCurrentNumberOfBooks()].getNumPages() + ", " + books[returnCurrentNumberOfBooks()].getPubYear() + s );
 			
@@ -43,7 +43,9 @@ abstract class Library implements InterfaceLibrary{
 			setCurrentNumberOfBooks(INCREASE_VALUE);
 			
 			for (int i = 0; i < returnCurrentNumberOfBooks(); i++) {
-				System.out.println(arrayBooksDataBase[i]);
+				for (int j = 0; j < 6; j++) {
+					System.out.println(arrayBooksDataBase[i][j]);
+				}
 			}
 		}
 		
@@ -51,8 +53,13 @@ abstract class Library implements InterfaceLibrary{
 	
 	@Override
 	public void allTheBookNames() {
-	
-		for (int i = 0; i < books.length; i++) {
+		for (int i = 0; i < returnCurrentNumberOfBooks(); i++) {
+			for (int j = 0; j < 6; j++) {
+				System.out.println(arrayBooksDataBase[i][j]);
+			}
+		}
+		
+/*		for (int i = 0; i < books.length; i++) {
 			System.out.print(books[i].getBookName() + ", " + books[i].getAuthorName() + ", " + books[i].getISBN() + ", " + 
 					books[i].getNumPages() + ", " + books[i].getPubYear() );
 			for (int j = 0; j < books[i].getKeyWords()[j].length(); j++) {
@@ -62,7 +69,7 @@ abstract class Library implements InterfaceLibrary{
 			}
 			System.out.println();
 		}
-		
+*/		
 		System.out.println("Number Of All Books : " + totalNumberOfBooks);
 		
 	}
@@ -71,9 +78,8 @@ abstract class Library implements InterfaceLibrary{
 		this.totalNumberOfBooks += increaseValue;
 	}
 	
-	@Override
+	// return current number of books
 	public int returnCurrentNumberOfBooks() {
-		// TODO Auto-generated method stub
 		return totalNumberOfBooks;
 	}
 	
