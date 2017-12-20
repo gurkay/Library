@@ -34,7 +34,8 @@ abstract class Library implements InterfaceLibrary{
 					books[returnCurrentNumberOfBooks()].getAuthorName() + ", " + books[returnCurrentNumberOfBooks()].getISBN() + ", " + 
 					books[returnCurrentNumberOfBooks()].getNumPages() + ", " + books[returnCurrentNumberOfBooks()].getPubYear() + s );
 			
-			totalNumberOfBooks++;
+			
+			setCurrentNumberOfBooks(INCREASE_VALUE);
 			
 			for (int i = 0; i < returnCurrentNumberOfBooks(); i++) {
 				System.out.println(arrayBooksDataBase[i]);
