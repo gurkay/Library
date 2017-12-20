@@ -90,7 +90,7 @@ abstract class Library implements InterfaceLibrary{
 		int cloumn = 0;
 		
 		for (int i = 0; i < totalNumberOfBooks; i++) {
-			for (int j = 0; j < keywords.length; j++) {
+			for (int j = 0; j < arrayBooksDataBase.length; j++) {
 				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(bookName)){
 					findBook[i] = arrayBooksDataBase[i];
 				}
@@ -107,8 +107,8 @@ abstract class Library implements InterfaceLibrary{
 		int cloumn = 1;
 		
 		for (int i = 0; i < totalNumberOfBooks; i++) {
-			for (int j = 0; j < keywords.length; j++) {
-				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(bookName)){
+			for (int j = 0; j < arrayBooksDataBase.length; j++) {
+				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(authorName)){
 					findBook[i] = arrayBooksDataBase[i];
 				}
 				cloumn++;
@@ -118,26 +118,36 @@ abstract class Library implements InterfaceLibrary{
 		return findBook;
 	}
 
-	@Override
+	//According to key word ofBooks find
 	public Book[] returnBookByKeyword(String keyWord) {
 		Book[] findBook = new Book[totalNumberOfBooks];
-		int cloumn = 0;
+		int cloumn = 5;
 		
 		for (int i = 0; i < totalNumberOfBooks; i++) {
 			
 			arrayBooksDataBase[i][cloum]
 				
-			String[] keywords = books[i].getKeyWords();
+			String keywords = arrayBooksDataBase[i][cloum];
 			
-			for (int j = 0; j < keywords.length; j++) {
-				if(keywords[j].equalsIgnoreCase(bookName)){
-					findBook[index] = books[index];
-					index++;
-					break;
-				}
+			if(keywords[j].equalsIgnoreCase(keyWord)){
+				findBook[index] = books[index];
+				index++;
+				break;
 			}
 		}
-		return null;
+		Book[] findBook = new Book[totalNumberOfBooks];
+		int cloumn = 5;
+		
+		for (int i = 0; i < totalNumberOfBooks; i++) {
+			for (int j = 0; j < keywords.length; j++) {
+				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(bookName)){
+					findBook[i] = arrayBooksDataBase[i];
+				}
+				cloumn++;
+				break;
+			}
+		}
+		return findBook;
 	}
 
 	@Override
