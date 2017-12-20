@@ -120,27 +120,13 @@ abstract class Library implements InterfaceLibrary{
 
 	//According to key word ofBooks find
 	public Book[] returnBookByKeyword(String keyWord) {
-		Book[] findBook = new Book[totalNumberOfBooks];
-		int cloumn = 5;
-		
-		for (int i = 0; i < totalNumberOfBooks; i++) {
-			
-			arrayBooksDataBase[i][cloum]
-				
-			String keywords = arrayBooksDataBase[i][cloum];
-			
-			if(keywords[j].equalsIgnoreCase(keyWord)){
-				findBook[index] = books[index];
-				index++;
-				break;
-			}
-		}
+
 		Book[] findBook = new Book[totalNumberOfBooks];
 		int cloumn = 5;
 		
 		for (int i = 0; i < totalNumberOfBooks; i++) {
 			for (int j = 0; j < keywords.length; j++) {
-				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(bookName)){
+				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(keyWord)){
 					findBook[i] = arrayBooksDataBase[i];
 				}
 				cloumn++;
