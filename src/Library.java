@@ -51,7 +51,7 @@ abstract class Library implements InterfaceLibrary{
 		
 	}
 	
-	@Override
+	// List all of books
 	public void allTheBookNames() {
 		for (int i = 0; i < returnCurrentNumberOfBooks(); i++) {
 			for (int j = 0; j < 6; j++) {
@@ -83,13 +83,50 @@ abstract class Library implements InterfaceLibrary{
 		return totalNumberOfBooks;
 	}
 	
-	@Override
+	// Find bookname amount of books
 	public Book[] returnBook(String bookName) {
 		
 		Book[] findBook = new Book[totalNumberOfBooks];
-		int index = 0;
+		int cloumn = 0;
 		
-		for (int i = 0; i < books.length; i++) {
+		for (int i = 0; i < totalNumberOfBooks; i++) {
+			for (int j = 0; j < keywords.length; j++) {
+				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(bookName)){
+					findBook[i] = arrayBooksDataBase[i];
+				}
+				cloumn++;
+				break;
+			}
+		}
+		return findBook;
+	}
+
+	//Find amount of Author Name
+	public Book[] returnBookByAuthor(String authorName) {
+		Book[] findBook = new Book[totalNumberOfBooks];
+		int cloumn = 1;
+		
+		for (int i = 0; i < totalNumberOfBooks; i++) {
+			for (int j = 0; j < keywords.length; j++) {
+				if(arrayBooksDataBase[i][cloum].equlsIgnoreCase(bookName)){
+					findBook[i] = arrayBooksDataBase[i];
+				}
+				cloumn++;
+				break;
+			}
+		}
+		return findBook;
+	}
+
+	@Override
+	public Book[] returnBookByKeyword(String keyWord) {
+		Book[] findBook = new Book[totalNumberOfBooks];
+		int cloumn = 0;
+		
+		for (int i = 0; i < totalNumberOfBooks; i++) {
+			
+			arrayBooksDataBase[i][cloum]
+				
 			String[] keywords = books[i].getKeyWords();
 			
 			for (int j = 0; j < keywords.length; j++) {
@@ -100,19 +137,6 @@ abstract class Library implements InterfaceLibrary{
 				}
 			}
 		}
-		
-		return findBook;
-	}
-
-	@Override
-	public Book[] returnBookByAuthor(String authorName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Book[] returnBookByKeyword(String keyWord) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
