@@ -50,7 +50,7 @@ interface InterfaceLibrary{
 	// * DATA BASE CLASS METHODS
 	// *
 	// ***************************************************	
-	String[] arrayBooksDataBase = new String[6];
+	String[][] arrayBooksDataBase = new String[10][6];
 	boolean getIsInteger(String str);
 	void inputValuesEnter(String inputValues);
 
