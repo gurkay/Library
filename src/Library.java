@@ -5,16 +5,12 @@
 //*****************************************************************************
 abstract class Library implements InterfaceLibrary{
 	
-	private static int totalNumberOfBooks;
+	private static int totalNumberOfBooks = 0;
 	Book[] books = new Book[] {};
-	
-	Library(){
-		
-	}
-	
+
 	public void addBook(String bookName, String authorName, String ISBN, int numPages, int pubYear, String[] keyWords){
 		
-		if(totalNumberOfBooks < 10){
+		if(returnCurrentNumberOfBooks() < 10){
 			setBookName(bookName);
 			setAuthorName(authorName);
 			setISBN(ISBN);
@@ -27,19 +23,20 @@ abstract class Library implements InterfaceLibrary{
 					new Book(getBookName(), getAuthorName(), getISBN(), getNumPages(), getPubYear(), getKeyWords()), 
 								
 			};
-			
+			System.out.println(returnCurrentNumberOfBooks());
 			String s = "";
 			
-			for (int i = 0; i <  books[totalNumberOfBooks].getKeyWords()[i].length(); i++) {
-				s += ", " + books[totalNumberOfBooks].getKeyWords()[i];
+			for (int i = 0; i <  books[returnCurrentNumberOfBooks()].getKeyWords()[i].length(); i++) {
+				s += ", " + books[returnCurrentNumberOfBooks()].getKeyWords()[i];
 			}
-			
-			arrayBooksDataBase[totalNumberOfBooks] = (books[totalNumberOfBooks].getBookName() + ", " + books[totalNumberOfBooks].getAuthorName() + ", " + books[totalNumberOfBooks].getISBN() + ", " + 
-					books[totalNumberOfBooks].getNumPages() + ", " + books[totalNumberOfBooks].getPubYear() + s );
+			System.out.println(returnCurrentNumberOfBooks());
+			arrayBooksDataBase[returnCurrentNumberOfBooks()] = (books[returnCurrentNumberOfBooks()].getBookName() + ", " + 
+					books[returnCurrentNumberOfBooks()].getAuthorName() + ", " + books[returnCurrentNumberOfBooks()].getISBN() + ", " + 
+					books[returnCurrentNumberOfBooks()].getNumPages() + ", " + books[returnCurrentNumberOfBooks()].getPubYear() + s );
 			
 			totalNumberOfBooks++;
 			
-			for (int i = 0; i < totalNumberOfBooks; i++) {
+			for (int i = 0; i < returnCurrentNumberOfBooks(); i++) {
 				System.out.println(arrayBooksDataBase[i]);
 			}
 		}
