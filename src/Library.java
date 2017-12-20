@@ -7,9 +7,9 @@ abstract class Library implements InterfaceLibrary{
 	
 	private static int totalNumberOfBooks = 0;
 	Book[] books = new Book[] {};
-
+	//Add new books
 	public void addBook(String bookName, String authorName, String ISBN, int numPages, int pubYear, String[] keyWords){
-		
+		//if total number of books than more 10 don't add books
 		if(returnCurrentNumberOfBooks() < 10){
 			setBookName(bookName);
 			setAuthorName(authorName);
@@ -59,6 +59,10 @@ abstract class Library implements InterfaceLibrary{
 		
 		System.out.println("Number Of All Books : " + totalNumberOfBooks);
 		
+	}
+	
+	public void setCurrentNumberOfBooks(int increaseValue) {
+		this.totalNumberOfBooks += increaseValue;
 	}
 	
 	@Override
