@@ -10,13 +10,15 @@ interface InterfaceLibrary{
 	// *
 	// ***************************************************	
 	final int MAX_KEYWORDS = 5;
-
+	final int INCREASE_VALUE = 1;
+	
 	void addBook(String bookName, String authorName, String ISBN, int numPages, int pubYear, String[] keyWords);
 	Book[] returnBook(String bookName);
 	Book[] returnBookByAuthor(String authorName);
 	Book[] returnBookByKeyword(String keyWord);
 	boolean deleteBook(String ISBN);
 	int returnCurrentNumberOfBooks();
+	void setCurrentNumberOfBooks(int increaseValue);
 	void allTheBookNames();
 	
 	
